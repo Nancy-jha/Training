@@ -1,0 +1,35 @@
+#SORT COLORS
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        l=0
+        curr=0
+        r=len(nums)-1
+        while curr<=r:
+            if nums[curr] == 0:
+                nums[l],nums[curr] = nums[curr],nums[l]
+                l+=1
+                curr+=1
+            elif nums[curr] == 2:
+                nums[r],nums[curr] = nums[curr],nums[r]
+                r-=1
+            else:
+                curr+=1
+                
+ #GROUP ANAGRAMS
+ class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        finlist=[]
+        mydict={}
+        for a in strs:
+            key=''.join(sorted(a))
+            if key in mydict:
+               mydict[key]=mydict[key]+[a]
+            else:
+               mydict[key]=[a]
+        for value in mydict.values():
+            finlist.append(value)
+        return finlist
+                
+                
+               
+
